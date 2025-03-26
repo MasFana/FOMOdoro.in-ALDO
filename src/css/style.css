@@ -355,7 +355,7 @@ main {
     }
   }
 
-  @starting-style rule
+  @starting-style rules
   &:popover-open,
   &:popover-open::backdrop {
     opacity: 0;
@@ -416,7 +416,6 @@ main {
     font-size: 1.4rem;
     transition: all 0.3s ease;
 
-    /* Light mode input styles */
     .light-mode & {
       background-color: var(--input-bg-light);
       color: var(--text-color-light);
@@ -560,71 +559,6 @@ main {
   max-width: 500px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  
-  .light-mode & {
-    background-color: var(--modal-bg-light);
-    color: var(--text-color-light);
-  }
-
-  .dark-mode & {
-    background-color: var(--modal-bg-dark);
-    color: var(--text-color-dark);
-  }
-
-  &[popover] {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  &:popover-open {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  &,
-  &::backdrop {
-    transition: display 250ms allow-discrete, overlay 250ms allow-discrete,
-      opacity 250ms;
-    opacity: 0;
-  }
-
-  &::backdrop {
-    background: color-mix(in srgb, #020617, transparent 40%);
-  }
-
-  &:popover-open {
-    opacity: 1;
-
-    &::backdrop {
-      opacity: 1;
-    }
-  }@media screen and (max-width: 480px) {
-  main {
-    transform: scale(0.85);
-  }
-
-  .modes {
-    font-size: 1.5rem;
-  }
-
-  .settings-btn__wrap {
-    bottom: 4rem;
-  }
-
-  .settings-modal__row-wrap input[type="number"] {
-    width: 10ch;
-  }
-}
-
-.about-modal__container {
-  position: relative;
-  border-radius: 1.5rem;
-  margin: auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 500px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 
   .light-mode & {
     background-color: var(--modal-bg-light);
@@ -664,94 +598,160 @@ main {
       opacity: 1;
     }
   }
+  @media screen and (max-width: 480px) {
+    main {
+      transform: scale(0.85);
+    }
 
-  @starting-style {
-    &:popover-open,
-    &:popover-open::backdrop {
+    .modes {
+      font-size: 1.5rem;
+    }
+
+    .settings-btn__wrap {
+      bottom: 4rem;
+    }
+
+    .settings-modal__row-wrap input[type="number"] {
+      width: 10ch;
+    }
+  }
+
+  .about-modal__container {
+    position: relative;
+    border-radius: 1.5rem;
+    margin: auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    .light-mode & {
+      background-color: var(--modal-bg-light);
+      color: var(--text-color-light);
+    }
+
+    .dark-mode & {
+      background-color: var(--modal-bg-dark);
+      color: var(--text-color-dark);
+    }
+
+    &[popover] {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    &:popover-open {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &,
+    &::backdrop {
+      transition: display 250ms allow-discrete, overlay 250ms allow-discrete,
+        opacity 250ms;
       opacity: 0;
     }
-  }
-}
 
-.about-modal__header {
-  padding: 0 0 2rem 0;
-  border-bottom: 2px solid #eef1f9;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    &::backdrop {
+      background: color-mix(in srgb, #020617, transparent 40%);
+    }
 
-  & h3 {
-    font-size: 2.2rem;
-    font-weight: 600;
-  }
+    &:popover-open {
+      opacity: 1;
 
-  & button {
-    background: none;
-    border: 0;
-    cursor: pointer;
-  }
-}
+      &::backdrop {
+        opacity: 1;
+      }
+    }
 
-.about-modal__content {
-  padding: 2rem 0;
-  font-size: 1.6rem;
-  line-height: 1.6;
-
-  & a {
-    color: var(--color-accent);
-    text-decoration: underline;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.8;
+    @starting-style {
+      &:popover-open,
+      &:popover-open::backdrop {
+        opacity: 0;
+      }
     }
   }
-  & h4 {
-    margin: 2rem 0 1rem;
-    font-weight: 500;
+
+  .about-modal__header {
+    padding: 0 0 2rem 0;
+    border-bottom: 2px solid #eef1f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    & button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
   }
 
-  & ul {
-    list-style-position: inside;
-    margin-bottom: 2rem;
+  .about-modal__content {
+    padding: 2rem 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    & a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    & h4 {
+      margin: 2rem 0 1rem;
+      font-weight: 500;
+    }
+
+    & ul {
+      list-style-position: inside;
+      margin-bottom: 2rem;
+    }
+
+    & li {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  & li {
-    margin-bottom: 0.5rem;
+  .about-modal__footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    color: var(--color-accent);
   }
-}
 
-.about-modal__footer {
-  text-align: center;
-  margin-top: 3rem;
-  font-size: 1.4rem;
-  color: var(--color-accent);
-}
+  .settings-modal__inputs-wrap input[type="number"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--input-bg-light);
+  }
 
-.settings-modal__inputs-wrap input[type="number"]:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background-color: var(--input-bg-light);
-}
+  .dark-mode .settings-modal__inputs-wrap input[type="number"]:disabled {
+    background-color: var(--input-bg-dark);
+  }
 
-.dark-mode .settings-modal__inputs-wrap input[type="number"]:disabled {
-  background-color: var(--input-bg-dark);
-}
+  .settings-warning {
+    color: #ff0033;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
 
-.settings-warning {
-  color: #ff0033;
-  font-size: 1.4rem;
-  margin-top: 1rem;
-  text-align: center;
-}
+  .settings-modal__inputs-wrap input[type="number"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--input-bg-light);
+  }
 
-.settings-modal__inputs-wrap input[type="number"]:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background-color: var(--input-bg-light);
-}
-
-.dark-mode .settings-modal__inputs-wrap input[type="number"]:disabled {
-  background-color: var(--input-bg-dark);
-}
+  .dark-mode .settings-modal__inputs-wrap input[type="number"]:disabled {
+    background-color: var(--input-bg-dark);
+  }
 }

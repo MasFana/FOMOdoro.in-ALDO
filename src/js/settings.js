@@ -7,6 +7,7 @@ const themeToggle = document.querySelector("#theme-toggle");
 const timerWarning = document.createElement("p");
 timerWarning.classList.add("settings-warning");
 timerWarning.textContent = "Stop the timer first to change the timer duration!";
+timerWarning.style.color = "red";
 
 export function handleSettingsFormSubmit() {
   const timeInputs = [
