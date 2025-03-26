@@ -170,13 +170,11 @@ main {
   position: relative;
   z-index: 1;
 
-  /* Light mode styles */
   .light-mode & {
     background: var(--input-bg-light);
     box-shadow: 8px 8px 24px #e3e3e3, -8px -8px 24px #ffffff;
   }
 
-  /* Dark mode styles */
   .dark-mode & {
     background: var(--modal-bg-dark);
     box-shadow: 8px 8px 24px #151932, -8px -8px 24px #272b5c;
@@ -191,7 +189,6 @@ main {
   transition: all 300ms ease-out;
   padding: 0.5em 1em;
   border-radius: 50px;
-  /* Light mode styles */
   .light-mode & {
     color: #484c67;
     background: var(--input-bg-light);
@@ -202,7 +199,6 @@ main {
       box-shadow: 4px 4px 8px #e3e3e3, -4px -4px 8px #ffffff;
     }
   }
-  /* Dark mode styles */
   .dark-mode & {
     color: #c0c0c0;
     background: var(--modal-bg-dark);
@@ -222,7 +218,7 @@ main {
 .get-started {
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 26%;
   transform: translateX(-50%);
   background: var(--color-accent);
   padding: 1.2rem 2rem;
@@ -539,6 +535,75 @@ main {
   }
 
   .modes {
+    font-size: 1.3rem;
+  }
+
+  .get-started {
+    top: 30%;
+    font-size: 0.8rem;
+  }
+  .settings-btn__wrap {
+    bottom: 4rem;
+  }
+
+  .settings-modal__row-wrap input[type="number"] {
+    width: 10ch;
+  }
+}
+
+.about-modal__container {
+  position: relative;
+  border-radius: 1.5rem;
+  margin: auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  
+  .light-mode & {
+    background-color: var(--modal-bg-light);
+    color: var(--text-color-light);
+  }
+
+  .dark-mode & {
+    background-color: var(--modal-bg-dark);
+    color: var(--text-color-dark);
+  }
+
+  &[popover] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  &:popover-open {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &,
+  &::backdrop {
+    transition: display 250ms allow-discrete, overlay 250ms allow-discrete,
+      opacity 250ms;
+    opacity: 0;
+  }
+
+  &::backdrop {
+    background: color-mix(in srgb, #020617, transparent 40%);
+  }
+
+  &:popover-open {
+    opacity: 1;
+
+    &::backdrop {
+      opacity: 1;
+    }
+  }@media screen and (max-width: 480px) {
+  main {
+    transform: scale(0.85);
+  }
+
+  .modes {
     font-size: 1.5rem;
   }
 
@@ -688,4 +753,5 @@ main {
 
 .dark-mode .settings-modal__inputs-wrap input[type="number"]:disabled {
   background-color: var(--input-bg-dark);
+}
 }
